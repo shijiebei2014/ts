@@ -1,0 +1,30 @@
+{
+  "name": "ts",
+  "version": "1.0.0",
+  "description": "ts",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha -r ./node_modules/ts-node/register src/__test__/**/*.ts"
+  },
+  "author": "xqq",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^3.4.35",
+    "@types/mocha": "^2.2.40",
+    "chai": "^3.5.0",
+    "cheerio": "^0.22.0",
+    "es6-promises": "^1.0.10",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.1.6",
+    "mocha": "^3.2.0",
+    "mysql": "^2.13.0",
+    "sequelize": "^3.30.3",
+    "ts-node": "^3.0.2",
+    "typescript": "^2.2.1",
+    "typings": "^2.1.0",
+    "urllib": "^2.22.0"
+  },
+  "dependencies": {
+    "@types/es6-promise": "0.0.32"
+  }
+}
