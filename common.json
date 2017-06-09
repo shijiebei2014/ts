@@ -1,0 +1,37 @@
+{
+    "source": {
+        "58": {
+            "xiaoquName": "district",
+            "shangQuan": "busi_district",
+            "huxing": "room",
+            "area": "size",
+            "suoZaiLouCeng": "floor",
+            "zongLouCeng": "totalFloor",
+            "shi": "shi1",
+            "ting": "ting",
+            "wei": "wei",
+            "price": "price",
+            "fittype": "fittype",
+            "toward": "toward"
+        }
+    },
+    "house_table": { //表结构
+        "address": "address",
+        "desc": "desc",
+        "room": "room",
+        "shi": "shi",
+        "ting": "ting",
+        "wei": "wei",
+        "url": "url",
+        "rent_type": "rent_type",
+        "floor": "floor",
+        "totalFloor": "totalFloor",
+        "toward": "toward",
+        "district": "district",
+        "busi_district": "busi_district",
+        "pay_type": "pay_type",
+        "size": "size",
+        "price": "price",
+        "fittype": "fittype"
+    }
+}

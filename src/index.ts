@@ -1,3 +1,10 @@
+//- 第三方包
+import * as colors from 'colors'
+
+//- 系统
+import * as util from 'util'
+
+//- 表结构
 import db from './db'
 import User from './models/user'
 import Company from './models/company'
@@ -279,3 +286,56 @@ cascade_update().catch(function(err) {
 	console.log(err)
 })
 */
+
+let create_relation = async function() {
+	// A是主表, B是从表,建立外键
+	// A hasOne B     : A建立关系
+	// B belongsTo A  : B建立关系
+	//创建公司; company setUser
+	let cnt = await Company.destroy({
+		where: {name: 'Google'}
+	});
+	// user.setProject
+	cnt = await User.destroy({
+		where: { name: 'Tim' }
+	});
+	cnt = await Project.destroy({
+		where: {
+			name: 'big project'
+		}
+	})
+	let project = await Project.create({
+		name: 'big project',
+	});
+	let user = await User.create({
+		name: 'Tim'
+	})
+	//project = await project.setUser(user); //user hasOne project
+	await user.setProject(project);
+	let company = await Company.create({
+		name: 'Google'
+	})
+	user = await user.setCompany(company);
+	// let user = await User.findOne({
+	// 	where: {name: 'Tim'},
+	// })
+	// if (!user) {
+	// 	user = await User.create({
+	// 		name: 'Tim'
+	// 	})
+	// }
+	// let company = await companies[0].setUser(user);
+	/*//创建project;
+	let project s= await Project.findOrCreate({
+		where: { name: 'big project' },
+		defaults: { name: 'big project' },
+	})*/
+}
+
+db.sync({
+	force: true
+}).then(function() {
+	create_relation().catch(function (err) {
+		console.log(colors.red(err))
+	})
+})

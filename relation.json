@@ -1,0 +1,19 @@
+{
+    "rent": {
+        "table": {
+            "Agent": "Agent",
+            "Area": "Area",
+            "City": "City",
+            "House": "House"
+        },
+        "relation": {
+            "Area": {
+                "belongsTo": "City",
+                "hasMany": "House"
+            },
+            "Agent": {
+                "hasMany": "House"
+            }
+        }
+    }
+}

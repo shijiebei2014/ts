@@ -1,0 +1,15 @@
+"use strict";
+exports.__esModule = true;
+var rent_db_1 = require("../../rent_db");
+exports.rent_db = rent_db_1["default"];
+var agent_1 = require("./agent");
+exports.Agent = agent_1["default"];
+var area_1 = require("./area");
+exports.Area = area_1["default"];
+var city_1 = require("./city");
+exports.City = city_1["default"];
+var house_1 = require("./house");
+exports.House = house_1["default"];
+area_1["default"].belongsTo(city_1["default"]);
+area_1["default"].hasMany(house_1["default"]);
+agent_1["default"].hasMany(house_1["default"]);
