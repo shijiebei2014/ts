@@ -13,7 +13,7 @@ var getJSON = function (filepath) {
             if (buf[0] === 0xEF && buf[1] === 0xBB && buf[2] === 0xBF) {
                 buf = buf.slice(3);
             }
-            var content = buf.toString('utf-8').replace(/\/\/(.*)/g, '');
+            var content = buf.toString('utf-8').replace(/(\/\/.*)|(\/\*(.|\s)*?\*\/)/g, '');
             return JSON.parse(content);
         }
         else {

@@ -14,7 +14,7 @@ let getJSON = function (filepath) {
             if (buf[0] === 0xEF && buf[1] === 0xBB && buf[2] === 0xBF) {
                 buf = buf.slice(3);
             }
-            let content = buf.toString('utf-8').replace(/\/\/(.*)/g, ''); //过滤掉注释
+            let content = buf.toString('utf-8').replace(/(\/\/.*)|(\/\*(.|\s)*?\*\/)/g, ''); //过滤掉注释
             // _debug_util(content)
             return  JSON.parse(content)
         } else {
