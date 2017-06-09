@@ -14,13 +14,15 @@ let getJSON = function (filepath) {
             if (buf[0] === 0xEF && buf[1] === 0xBB && buf[2] === 0xBF) {
                 buf = buf.slice(3);
             }
-            let content = buf.toString('utf-8').replace(/\/\/(.*)/, ''); //过滤掉注释
+            let content = buf.toString('utf-8').replace(/\/\/(.*)/g, ''); //过滤掉注释
+            // _debug_util(content)
             return  JSON.parse(content)
         } else {
             return new Error(`文件${filepath}不存在`);
         }
     })
     if (_.isError(ret)) {
+        _debug_util(ret)
         return null;
     }
     _debug_util(ret)
